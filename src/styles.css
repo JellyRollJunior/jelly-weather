@@ -38,10 +38,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
-.wrapper {
+.wrapper, output {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  max-width: 1500px;
 }
 
 header {
@@ -50,6 +52,5 @@ header {
   align-items: center;
 
   width: 100%;
-  max-width: 1500px;
   padding: 24px 36px;
 }

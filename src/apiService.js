@@ -28,9 +28,10 @@ function getWeatherEndpoint(location) {
 }
 
 function extractWeatherData(data) {
-    const { address, days, description, latitude, longitude } = data;
+    const { address, currentConditions, days, description, latitude, longitude } = data;
     const filteredData = {
         address,
+        currentConditions,
         days,
         description,
         latitude,
@@ -45,6 +46,8 @@ async function getWeatherData(location) {
         return null;
     }
     const json = await response.json();
+    console.log('raw data: ');
+    console.log(json);
     const data = extractWeatherData(json);
     console.log('cleaned data: ');
     console.log(data);
