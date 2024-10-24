@@ -1,8 +1,12 @@
-export { getWeatherData };
+export { getWeatherData, toggleMetric };
 
 const API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
 const BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
 let metric = true;
+
+function toggleMetric() {
+    metric = !metric;
+}
 
 async function makeApiRequest(endpoint) {
     try {
