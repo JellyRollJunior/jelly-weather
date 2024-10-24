@@ -27,17 +27,35 @@ function getWeatherEndpoint(location) {
     return `${location}/next7days?key=${API_KEY}&${unit}`;
 }
 
-function extractWeatherData(data) {
+function processCurrentConditionsData(data) {
+    const { datetime, temp, icon, feelslike, humidity, precip, precipprob, sunrise, sunset, windspeed } = data;
+    const filteredData = { 
+        datetime, 
+        temp, 
+        icon, 
+        feelslike, 
+        humidity, 
+        precip, 
+        precipprob, 
+        sunrise, 
+        sunset, 
+        windspeed 
+    };
+    return filteredData;
+}
+
+function processData(data) {
     const { address, currentConditions, days, description, latitude, longitude } = data;
-    const filteredData = {
+    const processedCurrentConditions = processCurrentConditionsData(currentConditions);
+    const processedData = {
         address,
-        currentConditions,
+        currentConditions: processedCurrentConditions,
         days,
         description,
         latitude,
         longitude,
     };
-    return filteredData;
+    return processedData;
 }
 
 async function getWeatherData(location) {
@@ -48,7 +66,7 @@ async function getWeatherData(location) {
     const json = await response.json();
     console.log('raw data: ');
     console.log(json);
-    const data = extractWeatherData(json);
+    const data = processData(json);
     console.log('cleaned data: ');
     console.log(data);
     return data;
