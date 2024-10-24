@@ -10,3 +10,6 @@
   - node scripts: run, dev, deploy
   - eslint
   - prettier
+
+- https://www.visualcrossing.com
+- https://www.geonames.org/
