@@ -1,7 +1,7 @@
 {
-  "name": "todo-list",
+  "name": "jelly-weather",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Contains:   - webpack   - webpack cli   - html webpack plugin   - html loader   - webpack dev server   - webpack merge   - node scripts: run, dev, deploy   - eslint   - prettier",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
