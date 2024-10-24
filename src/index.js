@@ -1,4 +1,5 @@
 import './styles.css'
+import { format } from "date-fns";
 import { getWeatherData } from "./apiService.js"
 
 function initSearchBar() {
@@ -20,9 +21,10 @@ function initWeatherTitle(data) {
     const location = document.querySelector('output > h1');
     const date = document.querySelector('h2 > .date');
     const time = document.querySelector('h2 > .time');
-
+    const now = new Date();
     location.textContent = data.address;
-    date.textContent = data.currentConditions.datetime;
+    date.textContent = format(now, 'EEEE, LLLL do, uuuu');
+    time.textContent = format(now, 'K:maaa')
 }
 
 async function initApp() {

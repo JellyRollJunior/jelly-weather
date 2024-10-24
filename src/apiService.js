@@ -28,9 +28,8 @@ function getWeatherEndpoint(location) {
 }
 
 function processCurrentConditionsData(data) {
-    const { datetime, temp, icon, feelslike, humidity, precip, precipprob, sunrise, sunset, windspeed } = data;
+    const { temp, icon, feelslike, humidity, precip, precipprob, sunrise, sunset, windspeed } = data;
     const filteredData = { 
-        datetime, 
         temp, 
         icon, 
         feelslike, 
