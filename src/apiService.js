@@ -52,8 +52,6 @@ function processData(data) {
         currentConditions: processedCurrentConditions,
         days,
         description,
-        latitude,
-        longitude,
     };
     return processedData;
 }

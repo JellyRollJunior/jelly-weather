@@ -1,8 +1,6 @@
 import './styles.css'
 import { getWeatherData } from "./apiService.js"
 
-getWeatherData('Taipei');
-
 function initSearchBar() {
     const form = document.querySelector('form');
     const searchInput = document.querySelector('#location');
@@ -18,4 +16,19 @@ function initSearchBar() {
     })
 }
 
+function initWeatherTitle(data) {
+    const location = document.querySelector('output > h1');
+    const date = document.querySelector('h2 > .date');
+    const time = document.querySelector('h2 > .time');
+
+    location.textContent = data.address;
+    date.textContent = data.currentConditions.datetime;
+}
+
+async function initApp() {
+    const data = await getWeatherData('Taipei');
+    initWeatherTitle(data);
+}
+
 initSearchBar();
+initApp();
