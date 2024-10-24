@@ -5,7 +5,7 @@ const BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/r
 
 async function makeApiRequest(endpoint) {
     try {
-        const response = await fetch(endpoint, { mode: 'cors' });
+        const response = await fetch(`${BASE_URL}${endpoint}`, { mode: 'cors' });
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
@@ -18,10 +18,10 @@ async function makeApiRequest(endpoint) {
     }
 }
 
-function getWeatherTimelineEndpoint(location) {
-    return BASE_URL + `timeline/${location}?key=${API_KEY}`;
+function getWeatherEndpoint(location) {
+    return `timeline/${location}?key=${API_KEY}`;
 }
 
 async function getWeatherData(location) {
-    return await makeApiRequest(getWeatherTimelineEndpoint(location));
+    return await makeApiRequest(getWeatherEndpoint(location));
 }
