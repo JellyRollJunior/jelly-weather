@@ -11,14 +11,14 @@ function toggleMetric() {
 async function makeApiRequest(endpoint) {
     try {
         const response = await fetch(`${BASE_URL}${endpoint}`, { mode: 'cors' });
+        console.log(response);
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
-        const json = await response.json();
-        return json;
+        return response;
     } catch (error) {
         console.log('API request failed', error);
-        throw error;
+        return null;
     }
 }
 
@@ -41,7 +41,11 @@ function extractWeatherData(data) {
 
 async function getWeatherData(location) {
     const response = await makeApiRequest(getWeatherEndpoint(location));
-    const data = extractWeatherData(response);
+    if (response === null) {
+        return null;
+    }
+    const json = await response.json();
+    const data = extractWeatherData(json);
     console.log('cleaned data: ');
     console.log(data);
     return data;
