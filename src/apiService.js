@@ -45,7 +45,7 @@ function processCurrentConditionsData(data) {
 }
 
 function processData(data) {
-    const { address, currentConditions, days, description, latitude, longitude } = data;
+    const { address, currentConditions, days, description } = data;
     const processedCurrentConditions = processCurrentConditionsData(currentConditions);
     const processedData = {
         address,
