@@ -11,5 +11,5 @@ function displayTitle(data, country) {
     countryElement.textContent = country;
     const now = new Date();
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
-    time.textContent = format(now, 'K:maaa')
+    time.textContent = format(now, 'KK:mmaaa')
 }
