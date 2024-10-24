@@ -1,7 +1,8 @@
-import { getWeatherData } from "./apiService.js"
+import { getWeatherData, getCountryFromCity } from "./apiService.js"
+import { displayTitle } from "./view.js"
 export { load }
 
-function initSearchBar() {
+function handleSearchBar() {
     const form = document.querySelector('form');
     const searchInput = document.querySelector('#location');
     form.addEventListener('submit', (event) => {
@@ -16,6 +17,11 @@ function initSearchBar() {
     })
 }
 
-function load() {
-    initSearchBar();
+async function load() {
+    handleSearchBar();
+    // Display data from Taipei upon initial page load
+    const defaultCity = 'Taipei';
+    const data = await getWeatherData(defaultCity);
+    const country = await getCountryFromCity(defaultCity);
+    displayTitle(data, country);
 }
