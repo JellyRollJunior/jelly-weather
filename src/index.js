@@ -1,21 +1,8 @@
 import './styles.css'
 import { format } from "date-fns";
 import { getWeatherData, toggleMetric, getCountryFromCity } from "./apiService.js"
+import { load } from "./controller.js"
 
-function initSearchBar() {
-    const form = document.querySelector('form');
-    const searchInput = document.querySelector('#location');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const location = searchInput.value;
-        console.log(location);
-        if (location === '') {
-            // THROW ERROR AND GET MAD!
-        } else {
-            getWeatherData(location);
-        }
-    })
-}
 
 function initWeatherTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -37,5 +24,5 @@ async function initApp() {
     initWeatherTitle(data, country);
 }
 
-initSearchBar();
+load();
 initApp();
