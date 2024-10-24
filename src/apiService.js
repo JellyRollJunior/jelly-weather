@@ -1,7 +1,8 @@
 export { getWeatherData };
 
 const API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
-const BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/`;
+const BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
+let metric = true;
 
 async function makeApiRequest(endpoint) {
     try {
@@ -10,7 +11,6 @@ async function makeApiRequest(endpoint) {
             throw new Error(`Error: ${response.status}`);
         }
         const json = await response.json();
-        console.log(json);
         return json;
     } catch (error) {
         console.log('API request failed', error);
@@ -19,9 +19,26 @@ async function makeApiRequest(endpoint) {
 }
 
 function getWeatherEndpoint(location) {
-    return `timeline/${location}?key=${API_KEY}`;
+    const unit = metric ? 'unitGroup=metric' : 'unitGroup=us';
+    return `${location}/next7days?key=${API_KEY}&${unit}`;
+}
+
+function extractWeatherData(data) {
+    const { address, days, description, latitude, longitude } = data;
+    const filteredData = {
+        address,
+        days,
+        description,
+        latitude,
+        longitude,
+    };
+    return filteredData;
 }
 
 async function getWeatherData(location) {
-    return await makeApiRequest(getWeatherEndpoint(location));
+    const response = await makeApiRequest(getWeatherEndpoint(location));
+    const data = extractWeatherData(response);
+    console.log('cleaned data: ');
+    console.log(data);
+    return data;
 }
