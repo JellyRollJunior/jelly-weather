@@ -17,22 +17,24 @@ function initSearchBar() {
     })
 }
 
-function initWeatherTitle(data) {
-    const location = document.querySelector('output > h1');
+function initWeatherTitle(data, country) {
+    const city = document.querySelector('h1 > .city');
+    const countryElement = document.querySelector('h1 > .country');
     const date = document.querySelector('h2 > .date');
     const time = document.querySelector('h2 > .time');
-    location.textContent = data.address;
+
+    city.textContent = data.address;
+    countryElement.textContent = country;
     const now = new Date();
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
     time.textContent = format(now, 'K:maaa')
 }
 
 async function initApp() {
-    // const data = await getWeatherData('Taipei');
-    // initWeatherTitle(data);
-
-    const data2 = await getCountryFromCity('Taipei');
-    console.log(data2);
+    const defaultCity = 'Taipei';
+    const data = await getWeatherData(defaultCity);
+    const country = await getCountryFromCity(defaultCity);
+    initWeatherTitle(data, country);
 }
 
 initSearchBar();
