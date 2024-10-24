@@ -1,13 +1,13 @@
 import { format } from "date-fns";
 export { displayTitle }
 
-function displayTitle(data, country) {
-    const city = document.querySelector('h1 > .city');
+function displayTitle(city, country) {
+    const cityElement = document.querySelector('h1 > .city');
     const countryElement = document.querySelector('h1 > .country');
     const date = document.querySelector('h2 > .date');
     const time = document.querySelector('h2 > .time');
 
-    city.textContent = data.address;
+    cityElement.textContent = city;
     countryElement.textContent = country;
     const now = new Date();
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');

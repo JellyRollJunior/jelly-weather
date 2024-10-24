@@ -23,5 +23,5 @@ async function load() {
     const defaultCity = 'Taipei';
     const data = await getWeatherData(defaultCity);
     const country = await getCountryFromCity(defaultCity);
-    displayTitle(data, country);
+    displayTitle(data.address, country);
 }
