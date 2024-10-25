@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-export { displayTitle, displayStats };
+export { displayTitle, displayWeather, displayStats };
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -12,6 +12,16 @@ function displayTitle(data, country) {
     const now = new Date().toLocaleString('en-US', { timeZone: data.timezone, });
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
     time.textContent = format(now, 'KK:mmaaa');
+}
+
+function displayWeather(data) {
+    const temp = document.querySelector('#temp');
+    const conditions = document.querySelector('#conditions');
+    const feelsLike = document.querySelector('#feels-like');
+
+    temp.textContent = data.currentConditions.temp;
+    conditions.textContent = data.currentConditions.conditions;
+    feelsLike.textContent = data.currentConditions.feelslike; 
 }
 
 function displayStats(data) {
