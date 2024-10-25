@@ -55,12 +55,18 @@ header {
   padding: 24px 36px;
 }
 
+section {
+  margin-top: 16px;
+}
+
 .current-conditions {
   display: grid;
   grid-template-columns: 2fr 3fr;
 }
 
 .weather {
+  margin: auto;
+
   border: 2px solid black;
 }
 
