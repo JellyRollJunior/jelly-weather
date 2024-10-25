@@ -66,6 +66,11 @@ header {
   padding: 24px 36px;
 }
 
+output {
+  width: 100%;
+  padding: 0 150px;
+}
+
 section {
   margin-top: 16px;
 }
@@ -86,13 +91,12 @@ section {
 }
 
 .current-conditions {
-  justify-self: right;
-  margin-right: 32px;
+  text-align: center;
   font-size: 1.5rem;
 }
 
 .current-conditions > h2 {
-  font-size: 2.7rem;
+  font-size: 2rem;
 }
 
 .stats {
