@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 * {
@@ -24,7 +25,8 @@ svg {
 input,
 button,
 textarea,
-select {
+select,
+span {
   font: inherit;
 }
 
@@ -36,6 +38,14 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-size: 1.3rem;
 }
 
 .wrapper,
@@ -68,13 +78,18 @@ section {
 .weather {
   justify-self: right;
   margin-right: 32px;
+  font-size: 1.5rem;
+}
 
-  border: 2px solid black;
+.weather > h2 {
+  font-size: 2.7rem;
 }
 
 .stats {
   display: grid;
   grid-template-columns: 150px 150px 150px;
+}
 
-  border: 2px solid black;
+.stats > div > div {
+  font-size: 1.5rem;
 }
