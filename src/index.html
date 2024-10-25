@@ -32,23 +32,23 @@
         <section class="current-conditions">
           <div class="weather">
             <h2>
-              <span id="temp">7</span>°<span class="temp-unit">C</span>
+              <span id="temp">7</span>°<span class="unit-temp">C</span>
             </h2>
             <div id="conditions">Rainy. Or not!</div>
-            <div>Feels like <span id="feels-like">23</span>°<span class="temp-unit">C</span></div>
+            <div>Feels like <span id="feels-like">23</span>°<span class="unit-temp">C</span></div>
           </div>
           <div class="stats">
             <div>
               <div>Chance of rain</div>
-              <div id="precip-prob"></div>
+              <div><span id="precip-prob"></span>%</div>
             </div>
             <div>
               <div>Amount of rain</div>
-              <div id="precip"></div>
+              <div><span id="precip"></span><span class="unit-amount">mm</span></div>
             </div>
             <div>
               <div>Humidity</div>
-              <div id="humidity"></div>
+              <div><span id="humidity"></span>%</div>
             </div>
             <div>
               <div>Sunrise</div>
@@ -60,10 +60,10 @@
             </div>
             <div>
               <div>Windspeed</div>
-              <div id="windspeed"></div>
+              <div><span id="windspeed"></span><span id="unit-speed">km/h</span></div>
             </div>
           </div>
-        </div>
+        </section>
         <div class="hourly"></div>
         <div class="forecast"></div>
       </output>
