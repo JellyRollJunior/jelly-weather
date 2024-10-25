@@ -12,4 +12,5 @@
   - prettier
 
 - https://www.visualcrossing.com
+- https://github.com/visualcrossing/WeatherIcons
 - https://www.geonames.org/
