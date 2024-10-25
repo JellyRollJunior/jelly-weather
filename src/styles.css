@@ -86,17 +86,12 @@ section {
 }
 
 .current-conditions {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-}
-
-.weather {
   justify-self: right;
   margin-right: 32px;
   font-size: 1.5rem;
 }
 
-.weather > h2 {
+.current-conditions > h2 {
   font-size: 2.7rem;
 }
 

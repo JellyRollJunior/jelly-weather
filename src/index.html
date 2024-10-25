@@ -27,47 +27,60 @@
         </div>
       </header>
       <output>
-        <h1><span class="city">City</span>, <span class="country">Country</span></h1>
-        <h2><span class="date">Thursday October 24th 2024</span> | <span class="time">10:44am</span></h2>
+        <h1>
+          <span class="city">City</span>, <span class="country">Country</span>
+        </h1>
+        <h2>
+          <span class="date">Thursday October 24th 2024</span> |
+          <span class="time">10:44am</span>
+        </h2>
         <section class="overview">
+          <img class="icon" src="./svg/partly-cloudy-day.svg" alt="" />
           <div class="weather">
-            <h2>
-              <span id="temp">7</span>°<span class="unit-temp">C</span>
-            </h2>
+            <h2><span id="temp">7</span>°<span class="unit-temp">C</span></h2>
             <div id="conditions">Rainy. Or not!</div>
-            <div>Feels like <span id="feels-like">23</span>°<span class="unit-temp">C</span></div>
+            <div>
+              Feels like <span id="feels-like">23</span>°<span class="unit-temp"
+                >C</span
+              >
+            </div>
           </div>
-          <img class='icon' src="./svg/partly-cloudy-day.svg" alt="">
-        </section>
-        <section class="current-conditions">
           <div class="range">
-            <div>High: <span id="high">30</span>°<span class="unit-temp">C</span></div>
-            <div>Low: <span id="low">20</span>°<span class="unit-temp">C</span></div>
+            <div>
+              High: <span id="high">30</span>°<span class="unit-temp">C</span>
+            </div>
+            <div>
+              Low: <span id="low">20</span>°<span class="unit-temp">C</span>
+            </div>
           </div>
-          <div class="stats">
+        </section>
+        <section class="stats">
+          <div>
+            <label>Chance of rain</label>
+            <div><span id="precip-prob"></span>%</div>
+          </div>
+          <div>
+            <label>Amount of rain</label>
             <div>
-              <label>Chance of rain</label>
-              <div><span id="precip-prob"></span>%</div>
+              <span id="precip"></span><span class="unit-amount">mm</span>
             </div>
+          </div>
+          <div>
+            <label>Humidity</label>
+            <div><span id="humidity"></span>%</div>
+          </div>
+          <div>
+            <label>Sunrise</label>
+            <div id="sunrise"></div>
+          </div>
+          <div>
+            <label>Sunset</label>
+            <div id="sunset"></div>
+          </div>
+          <div>
+            <label>Windspeed</label>
             <div>
-              <label>Amount of rain</label>
-              <div><span id="precip"></span><span class="unit-amount">mm</span></div>
-            </div>
-            <div>
-              <label>Humidity</label>
-              <div><span id="humidity"></span>%</div>
-            </div>
-            <div>
-              <label>Sunrise</label>
-              <div id="sunrise"></div>
-            </div>
-            <div>
-              <label>Sunset</label>
-              <div id="sunset"></div>
-            </div>
-            <div>
-              <label>Windspeed</label>
-              <div><span id="windspeed"></span><span id="unit-speed">km/h</span></div>
+              <span id="windspeed"></span><span id="unit-speed">km/h</span>
             </div>
           </div>
         </section>
