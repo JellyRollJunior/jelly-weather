@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import partlyCloudy from './svg/partly-cloudy-day.svg';
-export { displayTitle, displayIcon, displayWeather, displayStats };
+export { displayTitle, displayIcon, displayWeather, displayRange, displayStats };
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -40,6 +40,14 @@ function displayWeather(data) {
     temp.textContent = data.currentConditions.temp;
     conditions.textContent = data.currentConditions.conditions;
     feelsLike.textContent = data.currentConditions.feelslike;
+}
+
+function displayRange(data) {
+    const high = document.querySelector('#high');
+    const low = document.querySelector('#low');
+
+    high.textContent = data.days[0].tempmax;
+    low.textContent = data.days[0].tempmin;
 }
 
 function displayStats(data) {
