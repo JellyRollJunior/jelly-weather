@@ -62,6 +62,8 @@ async function getWeatherData(location) {
         return null;
     }
     const json = await response.json();
+    console.log('raw data: ');
+    console.log(json);
     const data = processWeatherData(json);
     console.log('cleaned data: ');
     console.log(data);

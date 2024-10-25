@@ -1,15 +1,31 @@
 import { format } from "date-fns";
-export { displayTitle }
+export { displayTitle, displayStats }
 
-function displayTitle(city, country) {
-    const cityElement = document.querySelector('h1 > .city');
+function displayTitle(data, country) {
+    const city = document.querySelector('h1 > .city');
     const countryElement = document.querySelector('h1 > .country');
     const date = document.querySelector('h2 > .date');
     const time = document.querySelector('h2 > .time');
 
-    cityElement.textContent = city;
+    city.textContent = data.address;
     countryElement.textContent = country;
     const now = new Date();
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
     time.textContent = format(now, 'KK:mmaaa')
+}
+
+function displayStats(data) {
+    const chanceOfRain = document.querySelector('#precip-prob');
+    const amountOfRain = document.querySelector('#precip');
+    const humidity = document.querySelector('#humidity');
+    const sunrise = document.querySelector('#sunrise');
+    const sunset = document.querySelector('#sunset');
+    const windspeed = document.querySelector('#windspeed');
+
+    chanceOfRain.textContent = data.currentConditions.precipprob;
+    amountOfRain.textContent = data.currentConditions.precip;
+    humidity.textContent = data.currentConditions.humidity;
+    sunrise.textContent = data.currentConditions.sunrise;
+    sunset.textContent = data.currentConditions.sunset;
+    windspeed.textContent = data.currentConditions.windspeed;
 }
