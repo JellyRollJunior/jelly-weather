@@ -70,6 +70,21 @@ section {
   margin-top: 16px;
 }
 
+.overview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  width: 100%;
+}
+
+.overview > img {
+  --icon-size: 80px;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
 .current-conditions {
   display: grid;
   grid-template-columns: 2fr 3fr;

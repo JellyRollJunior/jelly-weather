@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
-export { displayTitle, displayWeather, displayStats };
+import partlyCloudy from './svg/partly-cloudy-day.svg';
+export { displayTitle, displayIcon, displayWeather, displayStats };
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -9,9 +10,26 @@ function displayTitle(data, country) {
 
     city.textContent = data.address;
     countryElement.textContent = country;
-    const now = new Date().toLocaleString('en-US', { timeZone: data.timezone, });
+    const now = new Date().toLocaleString('en-US', { timeZone: data.timezone });
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
     time.textContent = format(now, 'KK:mmaaa');
+}
+
+function importImages(directory) {
+    let images = {};
+    directory.keys().forEach((item) => {
+        images[item.replace('./', '')] = directory(item);
+    });
+    return images;
+}
+
+function displayIcon(data) {
+    const images = importImages(
+        require.context('./svg', false, /\.(png|jpe?g|svg)$/)
+    );
+    const icon = document.querySelector('.overview > .icon');
+    const source = images[`${data.currentConditions.icon}.svg`];
+    icon.src = source !== undefined ? source : partlyCloudy;
 }
 
 function displayWeather(data) {
@@ -21,7 +39,7 @@ function displayWeather(data) {
 
     temp.textContent = data.currentConditions.temp;
     conditions.textContent = data.currentConditions.conditions;
-    feelsLike.textContent = data.currentConditions.feelslike; 
+    feelsLike.textContent = data.currentConditions.feelslike;
 }
 
 function displayStats(data) {

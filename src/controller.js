@@ -1,5 +1,5 @@
 import { getWeatherData, getCountryFromCity } from "./apiService.js"
-import { displayTitle, displayWeather, displayStats } from "./view.js"
+import { displayTitle, displayIcon, displayWeather, displayStats } from "./view.js"
 export { load }
 
 function handleSearchBar() {
@@ -24,6 +24,7 @@ async function load() {
     const data = await getWeatherData(defaultCity);
     const country = await getCountryFromCity(defaultCity);
     displayTitle(data, country);
+    displayIcon(data);
     displayWeather(data);
     displayStats(data);
 }
