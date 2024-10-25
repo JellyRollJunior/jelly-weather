@@ -1,5 +1,5 @@
-import { format } from "date-fns";
-export { displayTitle, displayStats }
+import { format } from 'date-fns';
+export { displayTitle, displayStats };
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -9,9 +9,9 @@ function displayTitle(data, country) {
 
     city.textContent = data.address;
     countryElement.textContent = country;
-    const now = new Date();
+    const now = new Date().toLocaleString('en-US', { timeZone: data.timezone, });
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
-    time.textContent = format(now, 'KK:mmaaa')
+    time.textContent = format(now, 'KK:mmaaa');
 }
 
 function displayStats(data) {

@@ -45,13 +45,14 @@ function processCurrentConditionsData(data) {
 }
 
 function processWeatherData(data) {
-    const { address, currentConditions, days, description } = data;
+    const { address, currentConditions, days, description, timezone } = data;
     const processedCurrentConditions = processCurrentConditionsData(currentConditions);
     const processedData = {
         address,
         currentConditions: processedCurrentConditions,
         days,
         description,
+        timezone,
     };
     return processedData;
 }
