@@ -63,7 +63,8 @@ header {
   align-items: center;
 
   width: 100%;
-  padding: 24px 36px;
+  padding: 0 36px;
+  margin-top: 24px;
 }
 
 output {
@@ -71,32 +72,60 @@ output {
   padding: 0 150px;
 }
 
+output > h1 {
+  margin-top: 24px;
+}
+
+output > h2 {
+  font-weight: normal;
+}
+
 section {
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .overview {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 65px;
 
-  width: 100%;
+  padding: 12px 34px 21px 45px;
+  margin-left: 30px;
+}
+
+.border {
+  border: 3px solid black;
+  border-radius: 36px;
 }
 
 .overview > img {
-  --icon-size: 80px;
+  --icon-size: 100px;
   width: var(--icon-size);
   height: var(--icon-size);
 }
 
 .current-conditions {
   text-align: center;
-  font-size: 1.5rem;
 }
 
 .current-conditions > h2 {
-  font-size: 2rem;
+  font-size: 3.4rem;
+}
+
+#conditions {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.range {
+  line-height: 2;
+  font-size: 1.1rem;
+  width: 250px;
+}
+
+.range > * {
+  font-size: inherit;
 }
 
 .stats {
@@ -110,3 +139,4 @@ section {
 .stats > div > div {
   font-size: 1.5rem;
 }
+
