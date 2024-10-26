@@ -94,7 +94,7 @@ section {
   align-items: center;
   gap: 65px;
 
-  padding: 12px 34px 21px 45px;
+  padding: 12px 24px 21px 45px;
   margin-left: 30px;
 }
 
@@ -124,9 +124,8 @@ section {
 
 .range {
   line-height: 2;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   width: 250px;
-  
 }
 
 .range > * {
@@ -136,8 +135,9 @@ section {
 .stats {
   display: grid;
   grid-template-columns: 150px 150px 150px;
-  row-gap: 12px;
+  gap: 32px 42px;
 
+  margin-left: 26px;
   text-align: center;
 }
 
