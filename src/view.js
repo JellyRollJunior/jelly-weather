@@ -80,20 +80,20 @@ function createCard(data) {
     const icon = document.createElement('img');
     const temp = document.createElement('div');
     // create H reading
-    temp.appendChild(document.createTextNode(`H: ${data.tempmax}°`));
+    temp.appendChild(document.createTextNode(`H: ${Math.round(+data.tempmax)}°`));
     const highUnit = document.createElement('span');
     highUnit.className = 'unit-temp';
     highUnit.textContent = 'C';
     temp.appendChild(highUnit);
     // create L reading
-    temp.appendChild(document.createTextNode(` / L: ${data.tempmin}°`));
+    temp.appendChild(document.createTextNode(` / L: ${Math.round(+data.tempmin)}°`));
     const lowUnit = highUnit.cloneNode(true);
     temp.appendChild(lowUnit);
     card.append(day, icon, temp);
 
     // placeholder data
     const epochMs = data.datetimeEpoch * 1000;
-    day.textContent = format(new Date(epochMs), "iiii");
+    day.textContent = format(new Date(epochMs), 'iiii');
     icon.src = importImages(
         require.context('./svg', false, /\.(png|jpe?g|svg)$/)
     )[`${data.icon}.svg`];
@@ -106,5 +106,5 @@ function displayForecast(data) {
     data.days.forEach((day, index) => {
         if (index == 0) return;
         cardHolder.appendChild(createCard(day));
-    })
+    });
 }
