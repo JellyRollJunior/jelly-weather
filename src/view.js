@@ -80,21 +80,12 @@ function createCard(data) {
     const icon = document.createElement('img');
     const temp = document.createElement('div');
     // create H reading
-    temp.appendChild(document.createTextNode('H: '));
-    const high = document.createElement('span');
-    high.className = 'high';
-    temp.appendChild(high);
-    temp.appendChild(document.createTextNode('°'));
+    temp.appendChild(document.createTextNode(`H: ${data.tempmax}°`));
     const highUnit = document.createElement('span');
     highUnit.className = 'unit-temp';
-    highUnit.textContent = 'C';
     temp.appendChild(highUnit);
     // create L reading
-    temp.appendChild(document.createTextNode(' / L: '));
-    const low = document.createElement('span');
-    low.className = 'low';
-    temp.appendChild(low);
-    temp.appendChild(document.createTextNode('°'));
+    temp.appendChild(document.createTextNode(` / L: ${data.tempmin}°`));
     const lowUnit = highUnit.cloneNode(true);
     temp.appendChild(lowUnit);
     card.append(day, icon, temp);
@@ -104,8 +95,7 @@ function createCard(data) {
     icon.src = importImages(
         require.context('./svg', false, /\.(png|jpe?g|svg)$/)
     )[`${data.icon}.svg`];
-    high.textContent = data.tempmax;
-    low.textContent = data.tempmin;
+    highUnit.textContent = 'C';
 
     return card;
 }
