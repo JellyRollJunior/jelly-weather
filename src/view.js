@@ -73,7 +73,7 @@ function displayStats(data) {
     windspeed.textContent = data.currentConditions.windspeed;
 }
 
-function createCard() {
+function createCard(data) {
     const card = document.createElement('div');
     card.classList.add('card');
     const day = document.createElement('div');
@@ -100,17 +100,21 @@ function createCard() {
     card.append(day, icon, temp);
 
     // placeholder data
-    day.textContent = 'Monday';
+    day.textContent = data.datetime;
     icon.src = importImages(
         require.context('./svg', false, /\.(png|jpe?g|svg)$/)
-    )['clear-day.svg'];
-    high.textContent = '7';
-    low.textContent = '5';
+    )[`${data.icon}.svg`];
+    high.textContent = data.tempmax;
+    low.textContent = data.tempmin;
 
     return card;
 }
 
-function displayForecast() {
+function displayForecast(data) {
     const cardHolder = document.querySelector('.forecast-card-holder');
-    cardHolder.appendChild(createCard());
+    console.log(data.days);
+    data.days.forEach((day, index) => {
+        if (index == 0) return;
+        cardHolder.appendChild(createCard(day));
+    })
 }

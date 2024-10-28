@@ -28,5 +28,5 @@ async function load() {
     displayWeather(data);
     displayRange(data);
     displayStats(data);
-    displayForecast();
+    displayForecast(data);
 }
