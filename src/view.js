@@ -83,6 +83,7 @@ function createCard(data) {
     temp.appendChild(document.createTextNode(`H: ${data.tempmax}°`));
     const highUnit = document.createElement('span');
     highUnit.className = 'unit-temp';
+    highUnit.textContent = 'C';
     temp.appendChild(highUnit);
     // create L reading
     temp.appendChild(document.createTextNode(` / L: ${data.tempmin}°`));
@@ -91,18 +92,17 @@ function createCard(data) {
     card.append(day, icon, temp);
 
     // placeholder data
-    day.textContent = data.datetime;
+    const epochMs = data.datetimeEpoch * 1000;
+    day.textContent = format(new Date(epochMs), "iiii");
     icon.src = importImages(
         require.context('./svg', false, /\.(png|jpe?g|svg)$/)
     )[`${data.icon}.svg`];
-    highUnit.textContent = 'C';
 
     return card;
 }
 
 function displayForecast(data) {
     const cardHolder = document.querySelector('.forecast-card-holder');
-    console.log(data.days);
     data.days.forEach((day, index) => {
         if (index == 0) return;
         cardHolder.appendChild(createCard(day));
