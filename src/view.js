@@ -1,6 +1,13 @@
 import { format } from 'date-fns';
 import partlyCloudy from './svg/partly-cloudy-day.svg';
-export { displayTitle, displayIcon, displayWeather, displayRange, displayStats };
+export {
+    displayTitle,
+    displayIcon,
+    displayWeather,
+    displayRange,
+    displayStats,
+    displayForecast,
+};
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -64,4 +71,46 @@ function displayStats(data) {
     sunrise.textContent = data.currentConditions.sunrise;
     sunset.textContent = data.currentConditions.sunset;
     windspeed.textContent = data.currentConditions.windspeed;
+}
+
+function createCard() {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    const day = document.createElement('div');
+    const icon = document.createElement('img');
+    const temp = document.createElement('div');
+    // create H reading
+    temp.appendChild(document.createTextNode('H: '));
+    const high = document.createElement('span');
+    high.className = 'high';
+    temp.appendChild(high);
+    temp.appendChild(document.createTextNode('°'));
+    const highUnit = document.createElement('span');
+    highUnit.className = 'unit-temp';
+    highUnit.textContent = 'C';
+    temp.appendChild(highUnit);
+    // create L reading
+    temp.appendChild(document.createTextNode(' / L: '));
+    const low = document.createElement('span');
+    low.className = 'low';
+    temp.appendChild(low);
+    temp.appendChild(document.createTextNode('°'));
+    const lowUnit = highUnit.cloneNode(true);
+    temp.appendChild(lowUnit);
+    card.append(day, icon, temp);
+
+    // placeholder data
+    day.textContent = 'Monday';
+    icon.src = importImages(
+        require.context('./svg', false, /\.(png|jpe?g|svg)$/)
+    )['clear-day.svg'];
+    high.textContent = '7';
+    low.textContent = '5';
+
+    return card;
+}
+
+function displayForecast() {
+    const cardHolder = document.querySelector('.forecast-card-holder');
+    cardHolder.appendChild(createCard());
 }
