@@ -21,7 +21,7 @@
 // 1. ~~normalize card size~~
 // 2. ~~clean days data~~
 // 3. ~~make H/L look good (truncate temp)~~
-// 4. refactor import images
+// 4. ~~refactor import images~~
 // 5. ~~limit web page width size~~
 // 6. implment search
 // 7. impement metic/imperial switch
