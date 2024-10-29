@@ -23,10 +23,12 @@ async function load() {
     const defaultCity = 'Taipei';
     const data = await getWeatherData(defaultCity);
     const country = await getCountryFromCity(defaultCity);
-    displayTitle(data, country);
-    displayIcon(data);
-    displayWeather(data);
-    displayRange(data);
-    displayStats(data);
-    displayForecast(data);
+    if (data !== null) {
+        displayTitle(data, country);
+        displayIcon(data);
+        displayWeather(data);
+        displayRange(data);
+        displayStats(data);
+        displayForecast(data);
+    }
 }
