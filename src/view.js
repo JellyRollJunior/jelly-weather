@@ -9,6 +9,8 @@ export {
     displayForecast,
 };
 
+const images = importImages();
+
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
     const countryElement = document.querySelector('h1 > .country');
@@ -22,8 +24,9 @@ function displayTitle(data, country) {
     time.textContent = format(now, 'KK:mmaaa');
 }
 
-function importImages(directory) {
+function importImages() {
     let images = {};
+    const directory = require.context('./svg', false, /\.(png|jpe?g|svg)$/);
     directory.keys().forEach((item) => {
         images[item.replace('./', '')] = directory(item);
     });
@@ -31,9 +34,6 @@ function importImages(directory) {
 }
 
 function displayIcon(data) {
-    const images = importImages(
-        require.context('./svg', false, /\.(png|jpe?g|svg)$/)
-    );
     const icon = document.querySelector('.overview > .icon');
     const source = images[`${data.currentConditions.icon}.svg`];
     icon.src = source !== undefined ? source : partlyCloudy;
@@ -94,9 +94,7 @@ function createCard(data) {
     // placeholder data
     const epochMs = data.datetimeEpoch * 1000;
     day.textContent = format(new Date(epochMs), 'iiii');
-    icon.src = importImages(
-        require.context('./svg', false, /\.(png|jpe?g|svg)$/)
-    )[`${data.icon}.svg`];
+    icon.src = images[`${data.icon}.svg`];
 
     return card;
 }

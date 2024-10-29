@@ -1,5 +1,3 @@
-import { da } from "date-fns/locale";
-
 export { getWeatherData, toggleMetric, getCountryFromCity };
 
 const WEATHER_API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
