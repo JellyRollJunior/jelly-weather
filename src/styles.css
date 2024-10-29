@@ -147,21 +147,27 @@ hr {
 }
 
 .forecast {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .forecast-card-holder {
   display: flex;
-  gap: 12px;
-  padding: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+
+  width: 850px;
+  margin: 16px 0 26px 26px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 30px 130px 30px;
+  text-align: center;
   align-items: center;
   gap: 12px;
 
+  width: 185px;
   padding: 16px 24px 20px 24px;
   border-radius: 24px;
   border: 2px solid black;
