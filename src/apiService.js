@@ -1,3 +1,5 @@
+import { da } from "date-fns/locale";
+
 export { getWeatherData, toggleMetric, getCountryFromCity };
 
 const WEATHER_API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
@@ -30,7 +32,7 @@ function getWeatherEndpoint(location) {
 
 function processCurrentConditionsData(data) {
     const { temp, icon, feelslike, humidity, precip, precipprob, sunrise, sunset, windspeed, conditions } = data;
-    const filteredData = { 
+    const processedData = { 
         temp, 
         icon, 
         feelslike, 
@@ -42,16 +44,31 @@ function processCurrentConditionsData(data) {
         windspeed,
         conditions,
     };
-    return filteredData;
+    return processedData;
+}
+
+function processDaysData(data) {
+    const processedData = data.map((day) => {
+        const { tempmax, tempmin, datetimeEpoch, icon} = day;
+        const processedDay = {
+            tempmax,
+            tempmin,
+            datetimeEpoch,
+            icon,
+        };
+        return processedDay;
+    })
+    return processedData
 }
 
 function processWeatherData(data) {
     const { address, currentConditions, days, description, timezone } = data;
     const processedCurrentConditions = processCurrentConditionsData(currentConditions);
+    const processedDays = processDaysData(days);
     const processedData = {
         address,
         currentConditions: processedCurrentConditions,
-        days,
+        days: processedDays,
         description,
         timezone,
     };
