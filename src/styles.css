@@ -42,7 +42,7 @@ h6 {
 
 html {
   --secondary-color: #564734;
-  
+
   background-color: #8EA076;
   color: var(--secondary-color);
   text-align: center;
@@ -78,7 +78,25 @@ header {
   margin-top: 24px;
 }
 
-.location-wrapper {
+#location {
+  color: var(--secondary-color);
+  width: 200px;
+  border-radius: 8px;
+  padding-left: 6px;
+  vertical-align: middle;
+}
+
+button {
+  color: var(--secondary-color);
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+#unit {
+  padding: 1px 12px;
+}
+
+.location-display-wrapper {
   margin-top: 24px;
 }
 
