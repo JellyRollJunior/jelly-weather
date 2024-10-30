@@ -41,16 +41,24 @@ h6 {
 }
 
 html {
-  --secondary-color: #1e1811;
-  background-image: linear-gradient(#b4e0e7, #5dd3e8);
+  --secondary-color: #564734;
+  
+  background-color: #8EA076;
   color: var(--secondary-color);
   text-align: center;
+  padding: 24px 0;
 }
 
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.wrapper {
+  background-color: #E0EFEA;
+  border-radius: 25px;
+  border: 3.9px solid var(--secondary-color);
 }
 
 .wrapper,
@@ -112,7 +120,7 @@ section {
   flex-wrap: wrap;
   gap: 16px;
   width: 850px;
-  margin: 16px 0 26px 0;
+  margin: 16px 0 32px 0;
 }
 
 .card {
