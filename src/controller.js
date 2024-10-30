@@ -11,6 +11,9 @@ import {
 } from './view.js';
 export { load };
 
+let metric = true;
+let currentLocation = 'Taipei';
+
 function handleSearchBar() {
     const form = document.querySelector('form');
     const searchInput = document.querySelector('#location');
@@ -31,6 +34,7 @@ async function displayLocation(location) {
     const data = await getWeatherData(location);
     const country = await getCountryFromCity(location);
     if (data !== null && country !== null) {
+        currentLocation = location;
         clearForecastCards();
         displayWeatherData(data, country);
     } else {
@@ -50,6 +54,5 @@ function displayWeatherData(data, country) {
 async function load() {
     handleSearchBar();
     // Display data from Taipei upon initial page load
-    const defaultCity = 'Taipei';
-    displayLocation(defaultCity);
+    displayLocation(currentLocation);
 }
