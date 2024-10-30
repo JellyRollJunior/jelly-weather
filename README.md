@@ -25,6 +25,7 @@
 // 5. ~~limit web page width size~~
 // 6. ~~implment search~~
 // 7. impement metic/imperial switch
+// 7.a highlight button for current unit used
 // 8. ~~make left shift margin less obvious~~
 // 9. add loading animation
 // 10. style search bar and unit switch

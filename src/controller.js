@@ -12,6 +12,7 @@ import {
 export { load };
 
 let currentLocation = 'Taipei';
+let isMetric = true;
 
 function handleSearchBar() {
     const form = document.querySelector('form');
@@ -29,7 +30,16 @@ function handleSearchBar() {
     });
 }
 
-async function displayLocation(location, isMetric) {
+function handleUnitButton() {
+    const unitButton = document.querySelector('#unit');
+    unitButton.addEventListener('click', () => {
+        isMetric = !isMetric;
+        displayLocation(currentLocation);
+        unitButton.textContent = isMetric ? 'Switch to imperial' : 'Switch to metric';
+    });
+}
+
+async function displayLocation(location) {
     const data = await getWeatherData(location, isMetric);
     const country = await getCountryFromCity(location);
     if (data !== null && country !== null) {
@@ -52,6 +62,7 @@ function displayWeatherData(data, country) {
 
 async function load() {
     handleSearchBar();
+    handleUnitButton()
     // Display data from Taipei upon initial page load
-    displayLocation(currentLocation, true);
+    displayLocation(currentLocation);
 }
