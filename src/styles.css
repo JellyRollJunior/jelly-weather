@@ -115,12 +115,11 @@ section {
 
 .range {
   line-height: 2;
-  font-size: 1.3rem;
   width: 250px;
 }
 
-.range > * {
-  font-size: inherit;
+.range > div {
+  font-size: 1.3rem;
 }
 
 .stats {
@@ -130,10 +129,6 @@ section {
 }
 
 .stats > div > div {
-  font-size: 1.5rem;
-}
-
-.forecast > h2 {
   font-size: 1.5rem;
 }
 
