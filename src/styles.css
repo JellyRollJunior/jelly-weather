@@ -79,10 +79,15 @@ section {
 }
 
 .overview {
-  gap: 65px;
-  padding: 12px 24px 21px 45px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  padding: 12px 0px 21px 0px;
   border: 3px solid var(--secondary-color);
   border-radius: 36px;
+  width: 750px;
 }
 
 .overview > img {
@@ -92,7 +97,8 @@ section {
 }
 
 .range {
-  line-height: 2;
+  line-height: 1.65;
+  padding-top: 12px;
   width: 250px;
 }
 
