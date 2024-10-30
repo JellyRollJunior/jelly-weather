@@ -70,21 +70,8 @@ header {
   margin-top: 24px;
 }
 
-h1 {
-  font-size: 1.9rem;
-}
-
 .location-wrapper {
   margin-top: 24px;
-}
-
-h2 {
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.date-wrapper {
-  font-weight: normal;
 }
 
 section {
@@ -104,32 +91,15 @@ section {
   height: var(--icon-size);
 }
 
-.current-conditions > h2 {
-  font-size: 3.4rem;
-}
-
-#conditions {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
 .range {
   line-height: 2;
   width: 250px;
-}
-
-.range > div {
-  font-size: 1.3rem;
 }
 
 .stats {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   gap: 32px 42px;
-}
-
-.stats > div > div {
-  font-size: 1.5rem;
 }
 
 .forecast-card-holder {
@@ -149,4 +119,34 @@ section {
   padding: 16px 24px 20px 24px;
   border-radius: 24px;
   border: 2px solid var(--secondary-color);
+}
+
+/* Font sizes */
+h1 {
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+.date-wrapper {
+  font-weight: normal;
+}
+
+.current-conditions > h2 {
+  font-size: 3.4rem;
+}
+
+#conditions {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.range > div {
+  font-size: 1.3rem;
+}
+
+.stats > div > div {
+  font-size: 1.5rem;
 }
