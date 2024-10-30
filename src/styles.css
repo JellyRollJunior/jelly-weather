@@ -73,22 +73,16 @@ header {
   margin-top: 24px;
 }
 
-output {
-  width: 100%;
-  padding: 0 150px;
-}
-
-output > h1 {
+.location-wrapper {
   margin-top: 24px;
 }
 
-output > h2 {
+.date-wrapper {
   font-weight: normal;
 }
 
-section,
-hr {
-  margin-top: 32px;
+section {
+  margin-top: 20px;
 }
 
 .overview {
@@ -98,7 +92,6 @@ hr {
   gap: 65px;
 
   padding: 12px 24px 21px 45px;
-  margin-left: 30px;
 }
 
 .border {
@@ -140,7 +133,6 @@ hr {
   grid-template-columns: 150px 150px 150px;
   gap: 32px 42px;
 
-  margin-left: 26px;
   text-align: center;
 }
 
@@ -148,8 +140,8 @@ hr {
   font-size: 1.5rem;
 }
 
-.forecast {
-  margin-top: 24px;
+.forecast > h2 {
+  font-size: 1.5rem;
 }
 
 .forecast-card-holder {
@@ -159,7 +151,7 @@ hr {
   gap: 16px;
 
   width: 850px;
-  margin: 16px 0 26px 26px;
+  margin: 16px 0 26px 0;
 }
 
 .card {
