@@ -12,7 +12,6 @@ function handleSearchBar() {
         if (location === '') {
             // THROW ERROR AND GET MAD!
         } else {
-            clearForecastCards();
             displayLocation(location);
         }
     })
@@ -30,7 +29,8 @@ function displayWeatherData(data, country) {
 async function displayLocation(location) {
     const data = await getWeatherData(location);
     const country = await getCountryFromCity(location);
-    if (data !== null) {
+    if (data !== null && country !== null) {
+        clearForecastCards();
         displayWeatherData(data, country);
     }
 }
