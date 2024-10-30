@@ -6,7 +6,7 @@
     <title>Jelly Weather</title>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper flex">
       <header>
         <div>
           <!-- <img src="" alt="" class="logo" /> -->
@@ -26,7 +26,7 @@
           <button>Imperial</button>
         </div>
       </header>
-      <output>
+      <output class="flex">
         <h1 class="location-wrapper">
           <span class="city">City</span>, <span class="country">Country</span>
         </h1>
@@ -34,7 +34,7 @@
           <span class="date">Thursday October 24th 2024</span> |
           <span class="time">10:44am</span>
         </h2>
-        <section class="overview border">
+        <section class="overview flex">
           <img class="icon" src="./svg/partly-cloudy-day.svg" alt="" />
           <div class="current-conditions">
             <h2><span id="temp">7</span>°<span class="unit-temp">C</span></h2>
@@ -86,7 +86,7 @@
         </section>
         <section class="forecast">
           <h2>7 Day Forecast</h2>
-          <div class="forecast-card-holder">
+          <div class="forecast-card-holder flex">
           </div>
         </section>
       </output>
