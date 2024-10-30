@@ -1,5 +1,5 @@
 import { getWeatherData, getCountryFromCity } from "./apiService.js"
-import { displayTitle, displayIcon, displayWeather, displayRange, displayStats, displayForecast } from "./view.js"
+import { displayTitle, displayOverviewIcon, displayCurrentWeather, displayCurrentRange, displayStats, displayForecast, clearForecastCards } from "./view.js"
 export { load }
 
 function handleSearchBar() {
@@ -12,23 +12,32 @@ function handleSearchBar() {
         if (location === '') {
             // THROW ERROR AND GET MAD!
         } else {
-            getWeatherData(location);
+            clearForecastCards();
+            displayLocation(location);
         }
     })
+}
+
+function displayWeatherData(data, country) {
+    displayTitle(data, country);
+    displayOverviewIcon(data);
+    displayCurrentWeather(data);
+    displayCurrentRange(data);
+    displayStats(data);
+    displayForecast(data);
+}
+
+async function displayLocation(location) {
+    const data = await getWeatherData(location);
+    const country = await getCountryFromCity(location);
+    if (data !== null) {
+        displayWeatherData(data, country);
+    }
 }
 
 async function load() {
     handleSearchBar();
     // Display data from Taipei upon initial page load
     const defaultCity = 'Taipei';
-    const data = await getWeatherData(defaultCity);
-    const country = await getCountryFromCity(defaultCity);
-    if (data !== null) {
-        displayTitle(data, country);
-        displayIcon(data);
-        displayWeather(data);
-        displayRange(data);
-        displayStats(data);
-        displayForecast(data);
-    }
+    displayLocation(defaultCity);
 }

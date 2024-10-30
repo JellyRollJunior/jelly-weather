@@ -2,11 +2,12 @@ import { format } from 'date-fns';
 import partlyCloudy from './svg/partly-cloudy-day.svg';
 export {
     displayTitle,
-    displayIcon,
-    displayWeather,
-    displayRange,
+    displayOverviewIcon,
+    displayCurrentWeather,
+    displayCurrentRange,
     displayStats,
     displayForecast,
+    clearForecastCards,
 };
 
 const images = importImages();
@@ -33,13 +34,13 @@ function importImages() {
     return images;
 }
 
-function displayIcon(data) {
+function displayOverviewIcon(data) {
     const icon = document.querySelector('.overview > .icon');
     const source = images[`${data.currentConditions.icon}.svg`];
     icon.src = source !== undefined ? source : partlyCloudy;
 }
 
-function displayWeather(data) {
+function displayCurrentWeather(data) {
     const temp = document.querySelector('#temp');
     const conditions = document.querySelector('#conditions');
     const feelsLike = document.querySelector('#feels-like');
@@ -49,7 +50,7 @@ function displayWeather(data) {
     feelsLike.textContent = data.currentConditions.feelslike;
 }
 
-function displayRange(data) {
+function displayCurrentRange(data) {
     const high = document.querySelector('#high');
     const low = document.querySelector('#low');
 
@@ -105,4 +106,9 @@ function displayForecast(data) {
         if (index == 0) return;
         cardHolder.appendChild(createCard(day));
     });
+}
+
+function clearForecastCards() {
+    const cardHolder = document.querySelector('.forecast-card-holder');
+    cardHolder.textContent = '';
 }
