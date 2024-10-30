@@ -8,6 +8,7 @@ import {
     displayForecast,
     clearForecastCards,
     alertLocationError,
+    displayUnits,
 } from './view.js';
 export { load };
 
@@ -35,6 +36,7 @@ function handleUnitButton() {
     unitButton.addEventListener('click', () => {
         isMetric = !isMetric;
         displayLocation(currentLocation);
+        displayUnits(isMetric);
         unitButton.textContent = isMetric ? 'Switch to imperial' : 'Switch to metric';
     });
 }

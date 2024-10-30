@@ -9,6 +9,7 @@ export {
     displayForecast,
     clearForecastCards,
     alertLocationError,
+    displayUnits,
 };
 
 const images = importImages();
@@ -116,4 +117,40 @@ function clearForecastCards() {
 
 function alertLocationError(location) {
     alert(`There is no data available for location: ${location}`);
+}
+
+function displayUnits(isMetric) {
+    if (isMetric) {
+        displayMetricUnits();
+    } else {
+        displayImperialUnits();
+    }
+}
+
+const temperatureUnitElements = document.querySelectorAll('.unit-temp');
+const amountUnitElements = document.querySelectorAll('.unit-amount');
+const speedUnitElements = document.querySelectorAll('.unit-speed');
+
+function displayMetricUnits() {
+    temperatureUnitElements.forEach((element) => {
+        element.textContent = 'C';
+    })
+    amountUnitElements.forEach((element) => {
+        element.textContent = 'mm';
+    })
+    speedUnitElements.forEach((element) => {
+        element.textContent = 'km/h';
+    })
+}
+
+function displayImperialUnits() {
+    temperatureUnitElements.forEach((element) => {
+        element.textContent = 'F';
+    })
+    amountUnitElements.forEach((element) => {
+        element.textContent = 'in';
+    })
+    speedUnitElements.forEach((element) => {
+        element.textContent = 'mph';
+    })
 }
