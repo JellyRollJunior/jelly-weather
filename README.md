@@ -27,3 +27,4 @@
 // 7. impement metic/imperial switch
 // 8. ~~make left shift margin less obvious~~
 // 9. add loading animation
+// 10. style search bar and unit switch

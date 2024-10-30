@@ -1,6 +1,15 @@
-import { getWeatherData, getCountryFromCity } from "./apiService.js"
-import { displayTitle, displayOverviewIcon, displayCurrentWeather, displayCurrentRange, displayStats, displayForecast, clearForecastCards } from "./view.js"
-export { load }
+import { getWeatherData, getCountryFromCity } from './apiService.js';
+import {
+    displayTitle,
+    displayOverviewIcon,
+    displayCurrentWeather,
+    displayCurrentRange,
+    displayStats,
+    displayForecast,
+    clearForecastCards,
+    alertLocationError,
+} from './view.js';
+export { load };
 
 function handleSearchBar() {
     const form = document.querySelector('form');
@@ -13,8 +22,20 @@ function handleSearchBar() {
             // THROW ERROR AND GET MAD!
         } else {
             displayLocation(location);
+            searchInput.value = '';
         }
-    })
+    });
+}
+
+async function displayLocation(location) {
+    const data = await getWeatherData(location);
+    const country = await getCountryFromCity(location);
+    if (data !== null && country !== null) {
+        clearForecastCards();
+        displayWeatherData(data, country);
+    } else {
+        alertLocationError(location);
+    }
 }
 
 function displayWeatherData(data, country) {
@@ -24,15 +45,6 @@ function displayWeatherData(data, country) {
     displayCurrentRange(data);
     displayStats(data);
     displayForecast(data);
-}
-
-async function displayLocation(location) {
-    const data = await getWeatherData(location);
-    const country = await getCountryFromCity(location);
-    if (data !== null && country !== null) {
-        clearForecastCards();
-        displayWeatherData(data, country);
-    }
 }
 
 async function load() {

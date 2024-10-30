@@ -101,5 +101,8 @@ async function getCountryFromCity(city) {
         return null;
     }
     const json = await response.json();
+    if (json.totalResultsCount === 0) {
+        return null;
+    }
     return processCountryData(json);
 }

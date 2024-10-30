@@ -8,6 +8,7 @@ export {
     displayStats,
     displayForecast,
     clearForecastCards,
+    alertLocationError,
 };
 
 const images = importImages();
@@ -111,4 +112,8 @@ function displayForecast(data) {
 function clearForecastCards() {
     const cardHolder = document.querySelector('.forecast-card-holder');
     cardHolder.textContent = '';
+}
+
+function alertLocationError(location) {
+    alert(`There is no data available for location: ${location}`);
 }
