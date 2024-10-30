@@ -1,13 +1,8 @@
-export { getWeatherData, toggleMetric, getCountryFromCity };
+export { getWeatherData, getCountryFromCity };
 
 const WEATHER_API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
 const WEATHER_BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
 const GEONAMES_BASE_URL = 'http://api.geonames.org/'
-let metric = true;
-
-function toggleMetric() {
-    metric = !metric;
-}
 
 async function makeApiRequest(endpoint) {
     try {
@@ -23,8 +18,8 @@ async function makeApiRequest(endpoint) {
     }
 }
 
-function getWeatherEndpoint(location) {
-    const unit = metric ? 'unitGroup=metric' : 'unitGroup=us';
+function getWeatherEndpoint(location, isMetric) {
+    const unit = isMetric ? 'unitGroup=metric' : 'unitGroup=us';
     return `${WEATHER_BASE_URL}${location}/next7days?key=${WEATHER_API_KEY}&${unit}`;
 }
 
@@ -73,8 +68,8 @@ function processWeatherData(data) {
     return processedData;
 }
 
-async function getWeatherData(location) {
-    const response = await makeApiRequest(getWeatherEndpoint(location));
+async function getWeatherData(location, isMetric) {
+    const response = await makeApiRequest(getWeatherEndpoint(location, isMetric));
     if (response === null) {
         return null;
     }

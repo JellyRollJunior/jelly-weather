@@ -11,7 +11,6 @@ import {
 } from './view.js';
 export { load };
 
-let metric = true;
 let currentLocation = 'Taipei';
 
 function handleSearchBar() {
@@ -30,8 +29,8 @@ function handleSearchBar() {
     });
 }
 
-async function displayLocation(location) {
-    const data = await getWeatherData(location);
+async function displayLocation(location, isMetric) {
+    const data = await getWeatherData(location, isMetric);
     const country = await getCountryFromCity(location);
     if (data !== null && country !== null) {
         currentLocation = location;
@@ -54,5 +53,5 @@ function displayWeatherData(data, country) {
 async function load() {
     handleSearchBar();
     // Display data from Taipei upon initial page load
-    displayLocation(currentLocation);
+    displayLocation(currentLocation, true);
 }
