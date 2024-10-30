@@ -24,8 +24,8 @@
 // 4. ~~refactor import images~~
 // 5. ~~limit web page width size~~
 // 6. ~~implment search~~
-// 7. impement metic/imperial switch
-// 7.a highlight button for current unit used
+// 7. ~~impement metic/imperial switch~~
 // 8. ~~make left shift margin less obvious~~
 // 9. add loading animation
 // 10. style search bar and unit switch
+// 10.a highlight button for current unit used
