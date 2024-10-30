@@ -41,16 +41,9 @@ h6 {
 }
 
 html {
+  --secondary-color: #1e1811;
   background-image: linear-gradient(#b4e0e7, #5dd3e8);
-  color: #1e1811
-}
-
-h1 {
-  font-size: 1.9rem;
-}
-
-h2 {
-  font-size: 1.3rem;
+  color: var(--secondary-color);
   text-align: center;
 }
 
@@ -77,8 +70,17 @@ header {
   margin-top: 24px;
 }
 
+h1 {
+  font-size: 1.9rem;
+}
+
 .location-wrapper {
   margin-top: 24px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 .date-wrapper {
@@ -92,7 +94,7 @@ section {
 .overview {
   gap: 65px;
   padding: 12px 24px 21px 45px;
-  border: 3px solid black;
+  border: 3px solid var(--secondary-color);
   border-radius: 36px;
 }
 
@@ -100,10 +102,6 @@ section {
   --icon-size: 100px;
   width: var(--icon-size);
   height: var(--icon-size);
-}
-
-.current-conditions {
-  text-align: center;
 }
 
 .current-conditions > h2 {
@@ -129,8 +127,6 @@ section {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   gap: 32px 42px;
-
-  text-align: center;
 }
 
 .stats > div > div {
@@ -151,12 +147,11 @@ section {
 .card {
   display: grid;
   grid-template-rows: 30px 130px 30px;
-  text-align: center;
   align-items: center;
   gap: 12px;
 
   width: 185px;
   padding: 16px 24px 20px 24px;
   border-radius: 24px;
-  border: 2px solid black;
+  border: 2px solid var(--secondary-color);
 }
