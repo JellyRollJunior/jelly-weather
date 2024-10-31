@@ -11,8 +11,6 @@ import {
     displayUnits,
     displayLoader,
     hideLoader,
-    hideData,
-    displayData,
 } from './view.js';
 export { load };
 
