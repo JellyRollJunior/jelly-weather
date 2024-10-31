@@ -90,7 +90,8 @@ function getCountryEndpoint(latitude, longitude) {
 }
 
 function processCountryData(data) {
-    return data.address.country;
+    const { country, city } = data.address;
+    return { country, city } ;
 }
 
 async function getCountryFromCity(latitude, longitude) {

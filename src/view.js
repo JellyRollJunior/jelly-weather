@@ -21,14 +21,14 @@ const speedUnitElements = document.querySelectorAll('.unit-speed');
 const loader = document.querySelector('.loader-wrapper');
 const output = document.querySelector('output');
 
-function displayTitle(data, country) {
+function displayTitle(data) {
     const city = document.querySelector('h1 > .city');
     const countryElement = document.querySelector('h1 > .country');
     const date = document.querySelector('h2 > .date');
     const time = document.querySelector('h2 > .time');
 
-    city.textContent = data.address;
-    countryElement.textContent = country;
+    city.textContent = data.city;
+    countryElement.textContent = data.country;
     const now = new Date().toLocaleString('en-US', { timeZone: data.timezone });
     date.textContent = format(now, 'EEEE, LLLL do, uuuu');
     time.textContent = format(now, 'KK:mmaaa');

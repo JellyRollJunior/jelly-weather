@@ -47,11 +47,11 @@ async function displayLocation(location) {
     displayLoader();
     const data = await getWeatherData(location, isMetric);
     if (data !== null) {
-        const country = await getCountryFromCity(data.latitude, data.longitude);
-        if (country !== null) {
+        const cityData = await getCountryFromCity(data.latitude, data.longitude);
+        if (cityData !== null) {
             currentLocation = location;
             clearForecastCards();
-            displayWeatherData(data, country);
+            displayWeatherData(data, cityData);
         }
     } else {
         alertLocationError(location);
@@ -59,8 +59,8 @@ async function displayLocation(location) {
     hideLoader();
 }
 
-function displayWeatherData(data, country) {
-    displayTitle(data, country);
+function displayWeatherData(data, cityData) {
+    displayTitle(cityData);
     displayOverviewIcon(data);
     displayCurrentWeather(data);
     displayCurrentRange(data);
