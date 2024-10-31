@@ -2,7 +2,8 @@ export { getWeatherData, getCountryFromCity };
 
 const WEATHER_API_KEY = 'JRPNTC8Y8V73YMJ6EY5B684W7';
 const WEATHER_BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
-const GEONAMES_BASE_URL = 'http://api.geonames.org/'
+const LOCATION_IQ_API_KEY = 'pk.0304cebf56197b22e0dfad9a2c4121f3';
+const LOCATION_IQ_BASE_URL = 'https://us1.locationiq.com/v1/reverse';
 
 async function makeApiRequest(endpoint) {
     try {
@@ -55,7 +56,7 @@ function processDaysData(data) {
 }
 
 function processWeatherData(data) {
-    const { address, currentConditions, days, description, timezone } = data;
+    const { address, currentConditions, days, description, timezone, latitude, longitude } = data;
     const processedCurrentConditions = processCurrentConditionsData(currentConditions);
     const processedDays = processDaysData(days);
     const processedData = {
@@ -64,6 +65,8 @@ function processWeatherData(data) {
         days: processedDays,
         description,
         timezone,
+        latitude,
+        longitude,
     };
     return processedData;
 }
@@ -82,16 +85,16 @@ async function getWeatherData(location, isMetric) {
     return data;
 }
 
-function getCountryEndpoint(city) {
-    return `${GEONAMES_BASE_URL}searchJSON?q=${city}&maxRows=1&username=jellyrolljunior`;
+function getCountryEndpoint(latitude, longitude) {
+    return `${LOCATION_IQ_BASE_URL}?key=${LOCATION_IQ_API_KEY}&lat=${latitude}&lon=${longitude}&format=json&`;
 }
 
 function processCountryData(data) {
-    return data.geonames[0].countryName;
+    return data.address.country;
 }
 
-async function getCountryFromCity(city) {
-    const response = await makeApiRequest(getCountryEndpoint(city));
+async function getCountryFromCity(latitude, longitude) {
+    const response = await makeApiRequest(getCountryEndpoint(latitude, longitude));
     if (response === null) {
         return null;
     }

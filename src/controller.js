@@ -46,11 +46,13 @@ function handleUnitButton() {
 async function displayLocation(location) {
     displayLoader();
     const data = await getWeatherData(location, isMetric);
-    const country = await getCountryFromCity(location);
-    if (data !== null && country !== null) {
-        currentLocation = location;
-        clearForecastCards();
-        displayWeatherData(data, country);
+    if (data !== null) {
+        const country = await getCountryFromCity(data.latitude, data.longitude);
+        if (country !== null) {
+            currentLocation = location;
+            clearForecastCards();
+            displayWeatherData(data, country);
+        }
     } else {
         alertLocationError(location);
     }
