@@ -6,7 +6,6 @@
 
 ### Features
 
-
 -   Displays current weather conditions
 -   Displays weekly forecast
 -   Search cities worldwide
@@ -24,6 +23,7 @@
 
 - First time making a project requesting data from a public API (neat!)
 - Used module pattern to practice code readbility and modularity
+- I learned that github pages will not allow HTTP requests! Had to remove my Geonames usage and switch to LocationIQ
 
 ## Acknowledgements
 
@@ -31,7 +31,7 @@
 | -------- | ------- |
 |Weather API| [Visual Crossing](https://www.visualcrossing.com) |
 |Weather icons| [Visual Crossing](https://github.com/visualcrossing/WeatherIcons) |
-| Country from cities API| [Geonames](https://www.geonames.org/)|
+| Country from cities API| ~~[Geonames](https://www.geonames.org/)~~ [LocationIQ](https://locationiq.com/)|
 |Importing a folder of images | [Medium](https://medium.com/dailyjs/leveraging-webpack-power-to-import-all-files-from-one-folder-cddedd3201b3) |
 |Loading animation loop| [w3schools](https://www.w3schools.com/howto/howto_css_loader.asp) |
 
