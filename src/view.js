@@ -10,9 +10,16 @@ export {
     clearForecastCards,
     alertLocationError,
     displayUnits,
+    displayLoader,
+    hideLoader,
 };
 
 const images = importImages();
+const temperatureUnitElements = document.querySelectorAll('.unit-temp');
+const amountUnitElements = document.querySelectorAll('.unit-amount');
+const speedUnitElements = document.querySelectorAll('.unit-speed');
+const loader = document.querySelector('.loader-wrapper');
+const output = document.querySelector('output');
 
 function displayTitle(data, country) {
     const city = document.querySelector('h1 > .city');
@@ -83,13 +90,17 @@ function createCard(data) {
     const icon = document.createElement('img');
     const temp = document.createElement('div');
     // create H reading
-    temp.appendChild(document.createTextNode(`H: ${Math.round(+data.tempmax)}°`));
+    temp.appendChild(
+        document.createTextNode(`H: ${Math.round(+data.tempmax)}°`)
+    );
     const highUnit = document.createElement('span');
     highUnit.className = 'unit-temp';
     highUnit.textContent = 'C';
     temp.appendChild(highUnit);
     // create L reading
-    temp.appendChild(document.createTextNode(` / L: ${Math.round(+data.tempmin)}°`));
+    temp.appendChild(
+        document.createTextNode(` / L: ${Math.round(+data.tempmin)}°`)
+    );
     const lowUnit = highUnit.cloneNode(true);
     temp.appendChild(lowUnit);
     card.append(day, icon, temp);
@@ -127,30 +138,52 @@ function displayUnits(isMetric) {
     }
 }
 
-const temperatureUnitElements = document.querySelectorAll('.unit-temp');
-const amountUnitElements = document.querySelectorAll('.unit-amount');
-const speedUnitElements = document.querySelectorAll('.unit-speed');
-
 function displayMetricUnits() {
     temperatureUnitElements.forEach((element) => {
         element.textContent = 'C';
-    })
+    });
     amountUnitElements.forEach((element) => {
         element.textContent = 'mm';
-    })
+    });
     speedUnitElements.forEach((element) => {
         element.textContent = 'km/h';
-    })
+    });
 }
 
 function displayImperialUnits() {
     temperatureUnitElements.forEach((element) => {
         element.textContent = 'F';
-    })
+    });
     amountUnitElements.forEach((element) => {
         element.textContent = 'in';
-    })
+    });
     speedUnitElements.forEach((element) => {
         element.textContent = 'mph';
-    })
+    });
+}
+
+function displayLoader() {
+    if (loader.classList.contains('hidden')) {
+        loader.classList.remove('hidden');
+    }
+    hideData();
+}
+
+function hideLoader() {
+    if (!loader.classList.contains('hidden')) {
+        loader.classList.add('hidden');
+    }
+    displayData();
+}
+
+function displayData() {
+    if (output.classList.contains('hidden')) {
+        output.classList.remove('hidden');
+    }
+}
+
+function hideData() {
+    if (!output.classList.contains('hidden')) {
+        output.classList.add('hidden');
+    }
 }

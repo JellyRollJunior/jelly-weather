@@ -15,6 +15,7 @@
 - https://github.com/visualcrossing/WeatherIcons
 - https://www.geonames.org/
 - https://medium.com/dailyjs/leveraging-webpack-power-to-import-all-files-from-one-folder-cddedd3201b3
+- https://www.w3schools.com/howto/howto_css_loader.asp
 
 #### checklist
 // todo:
@@ -26,5 +27,5 @@
 // 6. ~~implment search~~
 // 7. ~~impement metic/imperial switch~~
 // 8. ~~make left shift margin less obvious~~
-// 9. add loading animation
+// 9. ~~add loading animation~~
 // 10. ~~style search bar and unit switch~~

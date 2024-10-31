@@ -9,6 +9,10 @@ import {
     clearForecastCards,
     alertLocationError,
     displayUnits,
+    displayLoader,
+    hideLoader,
+    hideData,
+    displayData,
 } from './view.js';
 export { load };
 
@@ -42,6 +46,7 @@ function handleUnitButton() {
 }
 
 async function displayLocation(location) {
+    displayLoader();
     const data = await getWeatherData(location, isMetric);
     const country = await getCountryFromCity(location);
     if (data !== null && country !== null) {
@@ -51,6 +56,7 @@ async function displayLocation(location) {
     } else {
         alertLocationError(location);
     }
+    hideLoader();
 }
 
 function displayWeatherData(data, country) {
