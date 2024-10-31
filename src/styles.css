@@ -41,9 +41,11 @@ h6 {
 }
 
 html {
+  --main-color: #E0EFEA;
   --secondary-color: #564734;
+  --tertiary-color: #8EA076;
 
-  background-color: #8EA076;
+  background-color: var(--tertiary-color);
   color: var(--secondary-color);
   text-align: center;
   padding: 24px 0;
@@ -56,7 +58,7 @@ html {
 }
 
 .wrapper {
-  background-color: #E0EFEA;
+  background-color: var(--main-color);
   border-radius: 25px;
   border: 3.9px solid var(--secondary-color);
 }
@@ -181,4 +183,27 @@ h2 {
 
 .stats > div > div {
   font-size: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.loader-wrapper {
+  padding: 24px;
+  height: 1100px;
+}
+
+.loader {
+  animation: spin 2s linear infinite;
+  width: 120px;
+  height: 120px;
+  border: 16px solid #746a5c;
+  border-top: 16px solid #bdde92;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
