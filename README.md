@@ -1,8 +1,11 @@
-## Jelly Weather
+<h1 align="center">Jelly Weather<h1>
 
--   Project for The Odin Project: [Lesson link](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
+![jelly-weather](https://github.com/user-attachments/assets/c5f685cb-0d4a-4ca5-9e4b-498768918b84)
+
+### Project for The Odin Project: [Lesson link](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
 ### Features
+
 
 -   Displays current weather conditions
 -   Displays weekly forecast
